@@ -277,6 +277,10 @@ void cleanup() {
         IupDestroy(timeout);
     }
 
+    //stop the capture and stop the driver (or make a close dialog askin to stop the driver to if you need to keep it running)	
+    divertStop();  
+    system("sc stop WinDivert");
+	
     IupClose();
     endTimePeriod(); // try close if not closing
 }
